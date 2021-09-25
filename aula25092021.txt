@@ -1,0 +1,565 @@
+Comando para ecoar mensagem na tela
+root@operacao:~# echo Mensagem na tela
+Mensagem na tela
+
+Comando para criar arquivos vazio
+root@operacao:~# touch arq01.txt
+root@operacao:~# ls -l
+-rw-r--r-- 1 root root    0 set 25 09:46 arq01.txt
+
+
+Criar arquivo oculto
+root@operacao:~# touch .arquivooculto
+
+root@operacao:~# ls -la
+total 56
+drwx------  8 root root 4096 set 25 09:47 .
+drwxr-xr-x 19 root root 4096 out 24  2020 ..
+-rw-r--r--  1 root root    0 set 25 09:46 arq01.txt
+-rw-r--r--  1 root root    0 set 25 09:47 .arquivooculto
+-rw-------  1 root root 3236 set 18 11:40 .bash_history
+-rw-r--r--  1 root root  570 jan 31  2010 .bashrc
+drwx------  3 root root 4096 set 18 11:26 .cache
+drwxr-xr-x  3 root root 4096 out 24  2020 .local
+-rw-r--r--  1 root root  148 ago 17  2015 .profile
+-rwxr-xr-x  1 root root   40 set 11 10:33 script01.sh
+drwx------  3 root root 4096 set 18 11:30 .synaptic
+-rwxr-xr-x  1 root root  131 set 11 11:06 testainternet.sh
+drwxr-xr-x  2 root root 4096 set  3 21:34 teste
+drwxr-xr-x  2 root root 4096 set  3 21:36 teste2
+-rw-------  1 root root 1070 out 24  2020 .viminfo
+drwxr-xr-x  3 root root 4096 set  3 21:37 www
+
+Criar um diretório
+root@operacao:~# mkdir diretorio
+root@operacao:~# ls -l
+total 24
+-rw-r--r-- 1 root root    0 set 25 09:46 arq01.txt
+drwxr-xr-x 2 root root 4096 set 25 09:50 diretorio
+-rwxr-xr-x 1 root root   40 set 11 10:33 script01.sh
+-rwxr-xr-x 1 root root  131 set 11 11:06 testainternet.sh
+drwxr-xr-x 2 root root 4096 set  3 21:34 teste
+drwxr-xr-x 2 root root 4096 set  3 21:36 teste2
+drwxr-xr-x 3 root root 4096 set  3 21:37 www
+
+Criar um diretório oculto
+root@operacao:~# mkdir .oculto
+root@operacao:~# ls -l
+total 24
+-rw-r--r-- 1 root root    0 set 25 09:46 arq01.txt
+drwxr-xr-x 2 root root 4096 set 25 09:50 diretorio
+-rwxr-xr-x 1 root root   40 set 11 10:33 script01.sh
+-rwxr-xr-x 1 root root  131 set 11 11:06 testainternet.sh
+drwxr-xr-x 2 root root 4096 set  3 21:34 teste
+drwxr-xr-x 2 root root 4096 set  3 21:36 teste2
+drwxr-xr-x 3 root root 4096 set  3 21:37 www
+
+root@operacao:~# ls -la
+total 64
+drwx------ 10 root root 4096 set 25 09:52 .
+drwxr-xr-x 19 root root 4096 out 24  2020 ..
+-rw-r--r--  1 root root    0 set 25 09:46 arq01.txt
+-rw-r--r--  1 root root    0 set 25 09:47 .arquivooculto
+-rw-------  1 root root 3236 set 18 11:40 .bash_history
+-rw-r--r--  1 root root  570 jan 31  2010 .bashrc
+drwx------  3 root root 4096 set 18 11:26 .cache
+drwxr-xr-x  2 root root 4096 set 25 09:50 diretorio
+drwxr-xr-x  3 root root 4096 out 24  2020 .local
+drwxr-xr-x  2 root root 4096 set 25 09:52 .oculto
+-rw-r--r--  1 root root  148 ago 17  2015 .profile
+-rwxr-xr-x  1 root root   40 set 11 10:33 script01.sh
+drwx------  3 root root 4096 set 18 11:30 .synaptic
+-rwxr-xr-x  1 root root  131 set 11 11:06 testainternet.sh
+drwxr-xr-x  2 root root 4096 set  3 21:34 teste
+drwxr-xr-x  2 root root 4096 set  3 21:36 teste2
+-rw-------  1 root root 1070 out 24  2020 .viminfo
+drwxr-xr-x  3 root root 4096 set  3 21:37 www
+
+Criar a árvore de diretório brasil/sudeste/sp
+root@operacao:~# mkdir brasil/sudeste/sp
+mkdir: não foi possível criar o diretório “brasil/sudeste/sp”: Arquivo ou diretório inexistente
+
+Para criar uma árvore de diretório e subdiretórios onde os diretórios ainda não existem precisa usar o parametro -p no comando mkdir
+root@operacao:~# mkdir -p brasil/sudeste/sp
+
+Verificando o resultado
+root@operacao:~# tree
+.
+├── brasil
+    └── sudeste
+        └── sp
+
+Criar a árvore de diretório e subdiretórios /brasil/sul/PR /brasil/sul/SC e /brasil/sul/RS com uma única linha de comando
+root@operacao:~# mkdir -p brasil/sul/{PR,SC,RS}
+
+Resultado
+root@operacao:~# tree
+.
+├── arq01.txt
+├── brasil
+│   ├── sudeste
+│   │   └── sp
+│   └── sul
+│       ├── PR
+│       ├── RS
+│       └── SC
+├── diretorio
+├── script01.sh
+├── testainternet.sh
+├── teste
+├── teste2
+└── www
+    └── suaempresa.com
+        ├── estilos
+        └── imagens
+
+Podemos usar a mesma ideia para os arquivos
+root@operacao:~# touch arq{PR,SC,RS}.txt
+root@operacao:~# ls
+arq01.txt  arqRS.txt  brasil	 script01.sh	   teste   www
+arqPR.txt  arqSC.txt  diretorio  testainternet.sh  teste2
+
+root@operacao:~# touch arq0{1..5}.txt
+root@operacao:~# ls
+arq01.txt  arq04.txt  arqRS.txt  projeto	   teste
+arq02.txt  arq05.txt  arqSC.txt  script01.sh	   teste2
+arq03.txt  arqPR.txt  brasil	 testainternet.sh  www
+root@operacao:~# touch arq0{1..5}
+root@operacao:~# ls
+arq01	   arq02.txt  arq04	 arq05.txt  arqSC.txt  script01.sh	 teste2
+arq01.txt  arq03      arq04.txt  arqPR.txt  brasil     testainternet.sh  www
+arq02	   arq03.txt  arq05	 arqRS.txt  projeto    teste
+
+
+Comando rmdir apaga diretórios desde que esteja vazio.
+root@operacao:~# rmdir brasil
+rmdir: falhou em remover 'brasil': Diretório não vazio
+root@operacao:~# rmdir diretorio
+root@operacao:~# ls -l
+total 24
+-rw-r--r-- 1 root root    0 set 25 09:46 arq01.txt
+-rw-r--r-- 1 root root    0 set 25 10:01 arqPR.txt
+-rw-r--r-- 1 root root    0 set 25 10:01 arqRS.txt
+-rw-r--r-- 1 root root    0 set 25 10:01 arqSC.txt
+drwxr-xr-x 4 root root 4096 set 25 09:59 brasil
+-rwxr-xr-x 1 root root   40 set 11 10:33 script01.sh
+-rwxr-xr-x 1 root root  131 set 11 11:06 testainternet.sh
+drwxr-xr-x 2 root root 4096 set  3 21:34 teste
+drwxr-xr-x 2 root root 4096 set  3 21:36 teste2
+drwxr-xr-x 3 root root 4096 set  3 21:37 www
+
+comando para apagar arquivos e diretórios
+root@operacao:~# rm teste
+rm: não foi possível remover 'teste': É um diretório
+root@operacao:~# rm arq01.txt
+
+O comando rm com as opções -rf apaga recursivamente e forçado arquivos e diretórios
+root@operacao:~# rm -rf brasil
+root@operacao:~# ls -l
+total 20
+-rw-r--r-- 1 root root    0 set 25 10:01 arqPR.txt
+-rw-r--r-- 1 root root    0 set 25 10:01 arqRS.txt
+-rw-r--r-- 1 root root    0 set 25 10:01 arqSC.txt
+-rwxr-xr-x 1 root root   40 set 11 10:33 script01.sh
+-rwxr-xr-x 1 root root  131 set 11 11:06 testainternet.sh
+drwxr-xr-x 2 root root 4096 set  3 21:34 teste
+drwxr-xr-x 2 root root 4096 set  3 21:36 teste2
+drwxr-xr-x 3 root root 4096 set  3 21:37 www
+
+Cuidado! O rm pode ser fatal para o sistema operacional
+root@operacao:~# rm -rf /
+rm: é perigoso operar recursivamente em '/'
+rm: use --no-preserve-root para contornar esta segurança
+
+Comando que exibe o diretório atual de trabalho
+#pwd
+
+Comando que lista arquivos e diretórios e suas variações
+
+root@operacao:~# ls
+arqPR.txt  arqSC.txt	testainternet.sh  teste2
+arqRS.txt  script01.sh	teste		  www
+
+root@operacao:~# ls -l
+total 20
+-rw-r--r-- 1 root root    0 set 25 10:01 arqPR.txt
+-rw-r--r-- 1 root root    0 set 25 10:01 arqRS.txt
+-rw-r--r-- 1 root root    0 set 25 10:01 arqSC.txt
+-rwxr-xr-x 1 root root   40 set 11 10:33 script01.sh
+-rwxr-xr-x 1 root root  131 set 11 11:06 testainternet.sh
+drwxr-xr-x 2 root root 4096 set  3 21:34 teste
+drwxr-xr-x 2 root root 4096 set  3 21:36 teste2
+drwxr-xr-x 3 root root 4096 set  3 21:37 www
+
+root@operacao:~# ls -lh
+total 20K
+-rw-r--r-- 1 root root    0 set 25 10:01 arqPR.txt
+-rw-r--r-- 1 root root    0 set 25 10:01 arqRS.txt
+-rw-r--r-- 1 root root    0 set 25 10:01 arqSC.txt
+-rwxr-xr-x 1 root root   40 set 11 10:33 script01.sh
+-rwxr-xr-x 1 root root  131 set 11 11:06 testainternet.sh
+drwxr-xr-x 2 root root 4,0K set  3 21:34 teste
+drwxr-xr-x 2 root root 4,0K set  3 21:36 teste2
+drwxr-xr-x 3 root root 4,0K set  3 21:37 www
+
+root@operacao:~# ls -lha
+total 60K
+drwx------  9 root root 4,0K set 25 10:13 .
+drwxr-xr-x 19 root root 4,0K out 24  2020 ..
+-rw-r--r--  1 root root    0 set 25 10:01 arqPR.txt
+-rw-r--r--  1 root root    0 set 25 10:01 arqRS.txt
+-rw-r--r--  1 root root    0 set 25 10:01 arqSC.txt
+-rw-r--r--  1 root root    0 set 25 09:47 .arquivooculto
+-rw-------  1 root root 3,2K set 18 11:40 .bash_history
+-rw-r--r--  1 root root  570 jan 31  2010 .bashrc
+drwx------  3 root root 4,0K set 18 11:26 .cache
+drwxr-xr-x  3 root root 4,0K out 24  2020 .local
+drwxr-xr-x  2 root root 4,0K set 25 09:52 .oculto
+-rw-r--r--  1 root root  148 ago 17  2015 .profile
+-rwxr-xr-x  1 root root   40 set 11 10:33 script01.sh
+drwx------  3 root root 4,0K set 18 11:30 .synaptic
+-rwxr-xr-x  1 root root  131 set 11 11:06 testainternet.sh
+drwxr-xr-x  2 root root 4,0K set  3 21:34 teste
+drwxr-xr-x  2 root root 4,0K set  3 21:36 teste2
+-rw-------  1 root root 1,1K out 24  2020 .viminfo
+drwxr-xr-x  3 root root 4,0K set  3 21:37 www
+
+root@operacao:~# mkdir projeto
+root@operacao:~# cd projeto
+root@operacao:~/projeto# ls -la
+total 8
+drwxr-xr-x  2 root root 4096 set 25 10:31 .
+drwx------ 10 root root 4096 set 25 10:31 ..
+
+root@operacao:~/projeto# git init
+Initialized empty Git repository in /root/projeto/.git/
+
+root@operacao:~/projeto# ls -la
+total 12
+drwxr-xr-x  3 root root 4096 set 25 10:31 .
+drwx------ 10 root root 4096 set 25 10:31 ..
+drwxr-xr-x  7 root root 4096 set 25 10:31 .git
+
+root@operacao:~/projeto# ls -la .git
+total 40
+drwxr-xr-x 7 root root 4096 set 25 10:31 .
+drwxr-xr-x 3 root root 4096 set 25 10:31 ..
+drwxr-xr-x 2 root root 4096 set 25 10:31 branches
+-rw-r--r-- 1 root root   92 set 25 10:31 config
+-rw-r--r-- 1 root root   73 set 25 10:31 description
+-rw-r--r-- 1 root root   23 set 25 10:31 HEAD
+drwxr-xr-x 2 root root 4096 set 25 10:31 hooks
+drwxr-xr-x 2 root root 4096 set 25 10:31 info
+drwxr-xr-x 4 root root 4096 set 25 10:31 objects
+drwxr-xr-x 4 root root 4096 set 25 10:31 refs
+
+
+Exibe histórico de comandos
+root@operacao:~# history
+    1  ip a
+    2  nano /etc/apt/sources.list
+    3  nano /etc/network/interfaces
+    4  ping 4.2.2.2
+    5  ip a
+    6  clear
+    7  ip a
+    8  ping www.uol.com.br
+    9  clear
+   10  vim /etc/apt/sources.list
+   11  nano /etc/apt/sources.list
+   12  apt update
+   13  apt install debian-keyring -y
+   14  apt install build-essential
+   15  clear
+   16  apt install vim git -y
+   17  git clone https://github.com/flrobson77/servidores.git
+   18  vim teste
+   19  cd servidores/
+   20  ls
+   21  cd etc/
+   22  ls
+   23  cat vimrc > /etc/vim/vimrc
+   24  vim teste
+   25  cd
+   26  ls
+   27  rm -rf servidores
+   28  clear
+   29  update-alternatives --config editor
+   30  update-alternatives --config editor
+   31  clear
+   32  poweroff
+   33  exit
+   34  exit
+   35  exit
+   36  exit
+   37  shutdown -h now
+   38  whoami
+   39  echo $USER
+   40  exit
+   41  whoami 
+   42  echo $USER
+   43  exit
+   44  ls
+   45  ls
+   46  ping -c 4 4.2.2.2
+   47  ping 4.2.2.2
+   48  ping -c 4 4.2.2.2
+   49  ping -c 4 www.ifsp.edu.br
+   50  nano /etc/apt/sources.list
+   51  apt update
+   52  apt install cmatrix
+   53  cmatrix
+   54  apt install figlet
+   55  figlet Robson
+   56  exit
+   57  apt install -y info
+   58  info ls
+   59  cat -n /etc/passwd
+   60  echo $PATH
+   61  which ls
+   62  man builtins
+   63  type ls
+   64  type cd
+   65  ls /etc/*
+   66  ls /etc/*.conf
+   67  ls /etc/pa??wd
+   68  mkdir teste
+   69  cd teste
+   70  pwd
+   71  cd ..
+   72  pwd
+   73  cd teste
+   74  cd ..
+   75  mkdir teste2
+   76  cd teste
+   77  cd ../teste2
+   78  pwd
+   79  cd
+   80  mkdir www
+   81  ls
+   82  cd www
+   83  mkdir suaempresa.com
+   84  cd suaempresa.com/
+   85  ls
+   86  mkdir imagens
+   87  mkdir estilos
+   88  cd ./imagens
+   89  cd ../estilos
+   90  cd
+   91  exit
+   92  ls /
+   93  ls
+   94  mv
+   95  ls /boot
+   96  which ls
+   97  ls
+   98  which shutdown
+   99  tree
+  100  cat /etc/passwd
+  101  cat /etc/adduser.conf 
+  102  echo $SHELL
+  103  echo $PATH
+  104  ls
+  105  ./nomeprograma
+  106  nano script01.sh
+  107  ls
+  108  ./script01.sh
+  109  chmod +x script01.sh 
+  110  ./script01.sh 
+  111  ./script01.sh 
+  112  script01.sh
+  113  echo $PATH
+  114  ./script01.sh 
+  115  script01.sh
+  116  script01.sh
+  117  script01.sh
+  118  cp script01.sh /usr/local/bin
+  119  script01.sh
+  120  script01.sh
+  121  script01.sh
+  122  script01.sh
+  123  ls /lib/modules
+  124  ls /lib/modules/4.19.0-11-amd64/
+  125  cat /dev/psaux
+  126  cat /dev/sda
+  127  cat /dev/sda1
+  128  cat /dev/zero
+  129  cat /dev/null
+  130  ping -c 4 4.2.2.2
+  131  ping -c 4 4.2.2.2 > /dev/null
+  132  ping -c 4 4.2.2.2 > /dev/null && echo "Is UP" || echo "Is Down"
+  133  ping -c 4 4.2.2.0 > /dev/null && echo "Is UP" || echo "Is Down"
+  134  ping -c 4 4.2.2.0 > /dev/null && echo "Voce tem Internet" || echo "Contate o administrador"
+  135  ping -c 4 4.2.2.2
+  136  ping -c 4 4.2.2.2 > /dev/null && echo "Voce tem Internet" || echo "Contate o administrador"
+  137  ping -c 2 4.2.2.2 > /dev/null && echo "Voce tem Internet" || echo "Contate o administrador"
+  138  ping -c 2 4.2.2.0 > /dev/null && echo "Voce tem Internet" || echo "Contate o administrador"
+  139  echo ping -c 2 4.2.2.0 > /dev/null && echo "Voce tem Internet" || echo "Contate o administrador" >> testainternet.sh
+  140  cat testainternet
+  141  echo ping -c 2 4.2.2.0 > /dev/null && echo Voce tem Internet || echo Contate o administrador >> testainternet.sh
+  142  echo "ping -c 2 4.2.2.0 > /dev/null" >> testainternet.sh 
+  143  nano testainternet.sh 
+  144  nano testainternet.sh 
+  145  chmod +x testainternet.sh 
+  146  ./testainternet.sh 
+  147  nano testainternet.sh 
+  148  df -h
+  149  exit
+  150  cmatrix
+  151  nano /etc/sudoers
+  152  cat /etc/sudoers
+  153  gpasswd -a sysadmin sudo
+  154  cat /etc/group | grep sudo
+  155  adduser robson
+  156  passwd robson
+  157  passwd
+  158  exit
+  159  nano /etc/passwd
+  160  exit
+  161  nano /etc/sudoers
+  162  exit
+  163  cd /var/www/html/
+  164  ss -nltup
+  165  mkdir php
+  166  cd php
+  167  echo "<?php echo ("Hello World"); ?>" > index.php 
+  168  ls
+  169  cd ..
+  170  mkdir teste
+  171  ls teste
+  172  cd teste
+  173  listacorte.xls
+  174  touch listacorte.xls
+  175  cd
+  176  cd -
+  177  cd ..
+  178  git clone https://github.com/flrobson77/shinemodas.git
+  179  ls
+  180  cd shinemodas/
+  181  ls
+  182  dpkg -l php
+  183  dpkg -l | grep php
+  184  cd..
+  185  cd .
+  186  cd ..
+  187  mkdir globo.com
+  188  cd globo.com/
+  189  mkdir _images _styles _scripts
+  190  echo "<h1>operacao hospedagem</h1>" > index.html
+  191  clear
+  192  cd\
+  193  exit
+  194  echo Mensagem na tela
+  195  touch arq01.txt
+  196  ls -l
+  197  touch .arquivooculto
+  198  ls -a .arquivooculto 
+  199  ls -l
+  200  ls -la
+  201  mkdir diretorio
+  202  ls -l
+  203  ls -ld
+  204  ls -ld diretorio
+  205  mkdir .oculto
+  206  ls -l
+  207  ls -la
+  208  mkdir brasil/sudeste/sp
+  209  mkdir -p brasil/sudeste/sp
+  210  ls
+  211  tree
+  212  apt install tree -y
+  213  mkdir brasil/sul/{PR,SC,RS}
+  214  mkdir -p brasil/sul/{PR,SC,RS}
+  215  tree
+  216  touch arq{PR,SC,RS}.txt
+  217  ls
+  218  ls
+  219  rmdir brasil
+  220  rmdir diretorio
+  221  ls -l
+  222  ls
+  223  rm teste
+  224  rm arq01.txt
+  225  rm -rf brasil
+  226  ls -la
+  227  ls -l
+  228  rm -rf /
+  229  pwd
+  230  type rm
+  231  ls
+  232  man ls
+  233  ls -l
+  234  ls -lh
+  235  df 
+  236  df -h
+  237  rm -h
+  238  rm --h
+  239  rm --h
+  240  ls -lh
+  241  ls
+  242  ls -l
+  243  ls -lh
+  244  ls -lha
+  245  git
+  246  mkdir projeto
+  247  cd projeto
+  248  ls -la
+  249  git init
+  250  ls -la
+  251  ls -la .git
+  252  ls -lhai
+  253  cd
+  254  history
+
+Comando cd serve para alternar entre diretórios
+
+#cd <nomedodiretorio>
+
+#cd - 
+Retorna a posição anterior na árvore de diretórios
+
+Retorna para o diretório home do usuário
+#cd 
+
+Retorna um nível na árvore de diretórios
+#cd ..
+
+Retorna dois níveis na árvore de diretórios
+#cd ../..
+
+"." representa o diretório que estou no momento
+A partir do ponto posso acessar qualquer subdiretório
+
+Exemplo: Estou no diretório /root e dentro dele existe um subdiretório com nome de brasil, para alternar par ao diretório brasil usando a referência do "." executamos:
+root@operacao:~# cd ./brasil
+root@operacao:~/brasil# 
+
+<--------Fim da aula ----------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
